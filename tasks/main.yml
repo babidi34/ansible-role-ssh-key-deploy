@@ -1,13 +1,13 @@
 ---
 # tasks file for roles/ssh_key_deploy
-- name: Create user {{ user }}
+- name: Create user {{ new_user }}
   ansible.builtin.user:
-    name: "{{ user }}"
+    name: "{{ new_user }}"
     state: present
     shell: /bin/bash
 
-- name: Ajouter la clé publique pour l'utilisateur {{ user }}
+- name: Ajouter la clé publique pour l'utilisateur {{ new_user }}
   ansible.builtin.authorized_key:
-    user: "{{ user }}"
+    user: "{{ new_user }}"
     state: present
     key: "{{ ssh_pub_key }}"
