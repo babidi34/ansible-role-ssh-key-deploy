@@ -6,8 +6,16 @@
     state: present
     shell: /bin/bash
 
-- name: Ajouter la clé publique pour l'utilisateur {{ new_user }}
+- name: add pub_key {{ new_user }}
   ansible.builtin.authorized_key:
     user: "{{ new_user }}"
     state: present
     key: "{{ ssh_pub_key }}"
+
+- name: add {{ new_user }} to sudoers with full rights and no password
+  ansible.builtin.lineinfile:
+    path: /etc/sudoers
+    regexp: '^{{ new_user }} ALL='
+    line: '{{ new_user }} ALL=(ALL:ALL) NOPASSWD:ALL'
+    validate: 'visudo -cf %s'
+    state: present
