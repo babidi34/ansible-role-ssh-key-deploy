@@ -1,4 +1,4 @@
 ---
 # defaults file for roles/ssh_key_deploy
-user: my-user
+new_user: my-user
 #ssh_pub_key: "ssh-rsa AAAA... your_default_public_key_here ..."
