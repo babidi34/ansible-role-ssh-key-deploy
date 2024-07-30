@@ -1,10 +1,10 @@
 ---
 # defaults file for roles/ssh_key_deploy
-new_users: 
-  - user: my_user1
-    sudo: false
-    ssh_pub_key: ""
-  - user: my_user2
-    sudo: false
-    ssh_pub_key: ""
+new_users: []
+#  - user: my_user1
+#    sudo: false
+#    ssh_pub_key: ""
+#  - user: my_user2
+#    sudo: false
+#    ssh_pub_key: ""
 #ssh_pub_key: "ssh-rsa AAAA... your_default_public_key_here ..."
